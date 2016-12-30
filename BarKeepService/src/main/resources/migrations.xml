@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-
+  <changeSet id="create drinks table" author="kmclarnon">
+    <createTable tableName="drinks">
+      <column name="id" autoIncrement="true" type="int unsigned">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="name" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="style" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="source" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="garnish" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="glass" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="description" type="LONGTEXT CHARACTER SET ASCII">
+        <constraints nullable="false"/>
+      </column>
+      <column name="date_added" type="BIGINT UNSIGNED">
+        <constraints nullable="false"/>
+      </column>
+      <column name="date_tried" type="BIGINT UNSIGNED"/>
+    </createTable>
+  </changeSet>
 </databaseChangeLog>
