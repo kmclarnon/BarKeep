@@ -1,7 +1,5 @@
 package com.github.kmclarnon.barkeep.service.config;
 
-import javax.sql.DataSource;
-
 import org.skife.jdbi.v2.DBI;
 
 import com.github.kmclarnon.barkeep.service.config.utils.DaoBinder;
@@ -10,6 +8,7 @@ import com.github.kmclarnon.barkeep.service.data.DrinksDao;
 import com.github.kmclarnon.barkeep.service.resources.DrinksResource;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.hubspot.dropwizard.guicier.DropwizardAwareModule;
 import com.hubspot.rosetta.Rosetta;
 
@@ -32,6 +31,8 @@ public class BarKeepServiceModule extends DropwizardAwareModule<BarKeepConfigura
   }
 
   @Provides
+  @Singleton
   public DBI providesDbi(BarKeepConfiguration configuration) {
+    return new DBI(configuration.getDataSource());
   }
 }

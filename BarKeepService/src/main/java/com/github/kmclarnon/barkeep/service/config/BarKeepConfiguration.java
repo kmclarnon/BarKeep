@@ -35,7 +35,6 @@ public class BarKeepConfiguration extends Configuration {
     PGDataSourceFactory dataSourceFactory = new PGDataSourceFactory();
     Properties properties = new Properties();
     // install db properties here
-    properties.put()
 
     try {
       dataSource = dataSourceFactory.createDataSource(properties);
