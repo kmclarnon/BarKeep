@@ -1,0 +1,8 @@
+server:
+  type: simple
+  applicationContextPath: /bar-keep
+  connector:
+    type: http
+    port: 8080
+
+dbEnvironemntVariable: JDBC_DATABASE_URL

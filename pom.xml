@@ -5,11 +5,16 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>com.hubspot</groupId>
+    <artifactId>basepom</artifactId>
+    <version>15.6</version>
+  </parent>
+
   <groupId>com.github.kmclarnon</groupId>
   <artifactId>BarKeep</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>BarKeep Parent Pom</name>
 
   <modules>
     <module>BarKeepCore</module>
@@ -21,31 +26,30 @@
       <dependency>
         <groupId>org.immutables</groupId>
         <artifactId>value</artifactId>
-        <version>2.1.15</version>
+        <version>2.3.10</version>
       </dependency>
       <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.5.4</version>
+        <groupId>com.hubspot.rosetta</groupId>
+        <artifactId>RosettaJdbi</artifactId>
+        <version>3.10.10</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.hubspot.dropwizard</groupId>
+        <artifactId>dropwizard-guicier</artifactId>
+        <version>1.0.0.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>9.4-1201-jdbc4</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <compilerVersion>1.8</compilerVersion>
-          <source>1.8</source>
-          <target>1.8</target>
-          <!-- Prevents an endPosTable exception during compilation -->
-          <useIncrementalCompilation>false</useIncrementalCompilation>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

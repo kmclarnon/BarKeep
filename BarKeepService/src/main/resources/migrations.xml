@@ -21,7 +21,7 @@
       <column name="glass" type="VARCHAR(255)">
         <constraints nullable="false"/>
       </column>
-      <column name="description" type="LONGTEXT CHARACTER SET ASCII">
+      <column name="directions" type="LONGTEXT CHARACTER SET ASCII">
         <constraints nullable="false"/>
       </column>
       <column name="date_added" type="BIGINT UNSIGNED">
