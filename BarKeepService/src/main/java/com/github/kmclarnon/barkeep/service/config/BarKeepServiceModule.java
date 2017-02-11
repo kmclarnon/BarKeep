@@ -4,6 +4,7 @@ import org.skife.jdbi.v2.DBI;
 
 import com.github.kmclarnon.barkeep.service.config.utils.DaoBinder;
 import com.github.kmclarnon.barkeep.service.config.utils.LowerCaseWithUnderscoresModule;
+import com.github.kmclarnon.barkeep.service.config.utils.OptionalContainerFactory;
 import com.github.kmclarnon.barkeep.service.data.DrinksDao;
 import com.github.kmclarnon.barkeep.service.resources.DrinksResource;
 import com.google.inject.Binder;
@@ -33,6 +34,8 @@ public class BarKeepServiceModule extends DropwizardAwareModule<BarKeepConfigura
   @Provides
   @Singleton
   public DBI providesDbi(BarKeepConfiguration configuration) {
-    return new DBI(configuration.getDataSource());
+    DBI dbi = new DBI(configuration.getDataSource());
+    dbi.registerContainerFactory(new OptionalContainerFactory());
+    return dbi;
   }
 }
